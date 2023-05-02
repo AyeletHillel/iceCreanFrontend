@@ -25,3 +25,24 @@ export const createAction = async ({ request }) => {
       return redirect("/")
 
 }
+
+export const updateAction = async ({request, params}) => {
+  // get data from form
+  const formData = await request.formData()
+  // set up our new ice cream to match schema
+  const updatedIceCream = {
+      name: formData.get("name"),
+      image: formData.get("image"),
+      description: formData.get("description")
+  }
+  // Send new ice cream to our API
+  await fetch(URL + "/icecreams/" + params.id, {
+      method: "put",
+      headers: {
+          "Content-Type":"application/json"
+      },
+      body: JSON.stringify(updatedIceCream)
+  })
+  // redirect to index
+  return redirect("/")
+}

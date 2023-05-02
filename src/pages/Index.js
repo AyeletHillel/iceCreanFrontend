@@ -16,7 +16,7 @@ function Index (props) {
       <div className="icecream-list">
         {icecreams.map(icecream =>(
           <div key={icecream.id} className="icecream">
-            <Link to={`/${icecream.id}`}>
+            <Link to={`/${icecream._id}`}>
               <h2>{icecream.name}</h2>
             </Link>
             <p>{icecream.description}</p>

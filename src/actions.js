@@ -46,3 +46,12 @@ export const updateAction = async ({request, params}) => {
   // redirect to index
   return redirect("/")
 }
+
+export const deleteAction = async ({params}) => {
+  // Send delete request to our API
+  await fetch(URL + "/icecreams/" + params.id, {
+    method: "delete"
+  })
+  // redirect to index
+  return redirect("/")
+}
